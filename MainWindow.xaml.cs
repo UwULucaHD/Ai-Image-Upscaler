@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PhotoSauce.MagicScaler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +25,28 @@ namespace Ai_Image_Upscaler
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var height = int.Parse(Height.Text.ToString());
+            var width = int.Parse(Width.Text.ToString());
+            var path = Path.Text.ToString();
+            var output = Output.Text.ToString();
+            ScaleImage(height, width, path, output);
+        }
+
+        private void ScaleImage(int height, int width, string path, string output)
+        {
+            Task.Run(() =>
+            {
+                MagicImageProcessor.ProcessImage(path, output, new ProcessImageSettings
+                {
+                    Height = height,
+                    Width = width,
+                    ResizeMode = CropScaleMode.Contain
+                });
+            });
         }
     }
 }
