@@ -9,12 +9,27 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0"></TextBox>
-        <TextBlock Grid.Column="0">Width</TextBlock>
-        <TextBox Grid.Column="1"></TextBox>
-        <TextBlock Grid.Column="1">Height</TextBlock>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBox x:Name="Width" Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="0">Width</TextBlock>
+        <TextBox x:Name="Height" Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="1">Height</TextBlock>
+        <TextBox x:Name="Path" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="2">Path</TextBlock>
+        <TextBox x:Name="Output" Grid.Column="1" Grid.Row="4"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="4">Output</TextBlock>
+
+        <Button Grid.Row="5" Grid.Column="1" Click="Button_Click">Scale Image</Button>
     </Grid>
 </Window>

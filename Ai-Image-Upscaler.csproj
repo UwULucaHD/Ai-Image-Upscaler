@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="PhotoSauce.MagicScaler" Version="0.13.2" />
+  </ItemGroup>
+
 </Project>
